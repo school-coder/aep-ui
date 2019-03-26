@@ -1,12 +1,6 @@
 <template>
-
   <div id="app">
-    
-
-    <nav id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">API Hackathon</router-link>
-    </nav>
+    <Header />
     
     <router-view />
 
@@ -16,8 +10,19 @@
   </div>
 </template>
 
+<script>
+import Header from "@/components/Header.vue";
+export default {
+  components:{
+    Header
+  }
+}
+</script>
+
+
 <style lang="scss">
 
+@import '@/assets/theme.scss';
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
 
 nav {
