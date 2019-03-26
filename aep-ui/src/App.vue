@@ -4,17 +4,16 @@
     
     <router-view />
 
-    <footer>
-      &copy; Software AG, 2019.
-    </footer>
+    <Footer />
   </div>
 </template>
 
 <script>
 import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
 export default {
   components:{
-    Header
+    Header, Footer
   }
 }
 </script>
@@ -22,19 +21,11 @@ export default {
 
 <style lang="scss">
 
-@import '@/assets/theme.scss';
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
-
-nav {
-  position: fixed;
-  top: 0;
-  height: 50px;
-  width: 100%;
-  background-color: $blue;
-}
-
+@import '@/assets/theme.scss';
 footer {
   position: fixed;
   bottom: 0;
+  color: $blue;
 }
 </style>

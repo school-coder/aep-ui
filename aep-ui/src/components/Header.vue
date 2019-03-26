@@ -22,11 +22,11 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-    ul > li > a {
-        color: white;
-    }
+<style scoped lang="scss" >
 
+    .nav {
+        background-color: grey;
+    }
     ul > li:not(:last-child) {
         padding-right: 10px;
     }
