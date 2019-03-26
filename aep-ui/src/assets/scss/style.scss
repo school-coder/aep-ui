@@ -1,0 +1,14 @@
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+
+$blue : #1776BF;
+
+nav {
+    background-color: $blue;
+}
+
+nav a {
+    color: $white;
+}
+
+
+

@@ -1,17 +1,19 @@
 <template>
     <div id="id-mast-head">
-        <nav class="navbar">
-            <ul class="nav">
-                <li>
-                    <router-link to="/">Home</router-link> 
+        <nav class="navbar navbar-expand-lg">
+            <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <router-link to="/" class="nav-link">Home</router-link> 
                 </li>
 
-                <li>
-                    <router-link to="/about">API Hackathon</router-link>
+                <li class="nav-item">
+                    <router-link to="/about" class="nav-link">API Hackathon</router-link>
                 </li>
             </ul>
-
+            </div>  
         </nav>
+        
     </div>
 </template>
 
@@ -22,14 +24,10 @@ export default {
 }
 </script>
 
-<style scoped lang="scss" >
+<style scoped>
 
-    .nav {
-        background-color: grey;
-    }
-    ul > li:not(:last-child) {
-        padding-right: 10px;
-    }
+
+
 </style>
 
 
