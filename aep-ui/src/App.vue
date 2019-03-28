@@ -11,6 +11,7 @@
 <script>
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
+import 'bootstrap'
 export default {
   components:{
     Header, Footer
@@ -23,6 +24,7 @@ export default {
 
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
 @import '@/assets/scss/style.scss';
+
 footer {
   position: fixed;
   bottom: 0;
