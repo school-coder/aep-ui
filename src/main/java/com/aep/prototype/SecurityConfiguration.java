@@ -29,7 +29,7 @@ public class SecurityConfiguration extends ResourceServerConfigurerAdapter {
 
     private final OAuth2TokenEndpointClient tokenEndpointClient;
 
-    public SecurityConfiguration( OAuth2TokenEndpointClient tokenEndpointClient) {
+    public SecurityConfiguration(OAuth2TokenEndpointClient tokenEndpointClient) {
 
         this.tokenEndpointClient = tokenEndpointClient;
     }
@@ -42,18 +42,19 @@ public class SecurityConfiguration extends ResourceServerConfigurerAdapter {
 //            .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
 //        .and()
 //            .addFilterBefore(corsFilter(), CsrfFilter.class)
-            .headers()
-            .frameOptions()
-            .disable()
-        .and()
-            .sessionManagement()
-            .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-        .and()
-            .authorizeRequests()
-            .antMatchers("/api/**").authenticated()
-            .antMatchers("/management/health").permitAll()
-            .antMatchers("/management/info").permitAll()
-            .antMatchers("/management/**").hasAuthority("");
+                .headers()
+                .frameOptions()
+                .disable()
+                .and()
+                .sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
+                .authorizeRequests()
+                .antMatchers("/api/users").permitAll()
+                .antMatchers("/api/**").authenticated()
+                .antMatchers("/management/health").permitAll()
+                .antMatchers("/management/info").permitAll()
+                .antMatchers("/management/**").hasAuthority("");
     }
 
     @Bean
@@ -63,7 +64,7 @@ public class SecurityConfiguration extends ResourceServerConfigurerAdapter {
 
     @Bean
     public JwtAccessTokenConverter jwtAccessTokenConverter(OAuth2SignatureVerifierClient signatureVerifierClient) {
-        return new OAuth2JwtAccessTokenConverter( signatureVerifierClient);
+        return new OAuth2JwtAccessTokenConverter(signatureVerifierClient);
     }
 
     @Bean
@@ -87,7 +88,6 @@ public class SecurityConfiguration extends ResourceServerConfigurerAdapter {
         }
         return new CorsFilter(source);
     }
-
 
 
 }

@@ -9,7 +9,7 @@ export default class LoginForm extends Vue {
    
     console.log(JSON.stringify(this.user));
     axios
-      .post('api/users', this.user, {
+      .post('api/register', this.user, {
         headers: {
           'Content-Type': 'application/json'
         }

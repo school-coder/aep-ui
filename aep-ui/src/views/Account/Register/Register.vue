@@ -23,7 +23,7 @@
           <label >Password</label>
           <input v-model="user.password" class="form-control" placeholder="Password">
         </div>
-        <button type="submit" class="btn btn-primary">Log in</button>
+        <button type="submit" class="btn btn-primary">Register</button>
       </form>
     </div>
     
