@@ -7,11 +7,11 @@
             <router-link to="/" class="nav-link">Home</router-link>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item"  >
             <router-link to="/about" class="nav-link">API Hackathon</router-link>
           </li>
 
-           <li class="nav-item">
+           <li class="nav-item" v-if="authendicated ===  false">
             <div class="dropdown">
             <button
               class="btn  dropdown-toggle"
@@ -28,6 +28,11 @@
           </div>
           </li>
 
+          <li v-else class="nav-item"  >
+            <router-link to="/about" class="nav-link">Profile</router-link>
+          </li>
+
+
           
         </ul>
       </div>
@@ -37,7 +42,19 @@
 
 <script>
 export default {
-  name: "Header"
+  name: "Header",
+  computed:{
+     authendicated () {
+      return this.$store.state.account.isAuthenticated;
+    }
+  },
+  methods:{
+    hideSignin: function() { 
+      this.$ref.signInBoard.add
+    }
+
+  },
+
 
 }
 </script>

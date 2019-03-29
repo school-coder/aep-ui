@@ -1,10 +1,14 @@
 import axios from 'axios';
-import { Component,  Vue } from 'vue-property-decorator';
+import { Component,  Vue, Inject } from 'vue-property-decorator';
+import AccountService from '@/shared/accountservice';
 @Component
 export default class LoginForm extends Vue {
+  @Inject('accountService')
+  private accountService: () => AccountService;
   public username = null;
   public password = null;
-  public name = null;
+  public name?: string = '';
+  public number = this.$store.state.account.count || 0;
   public doLogin(): void {
     const data = {
       "username": this.username,
@@ -17,16 +21,13 @@ export default class LoginForm extends Vue {
         }
       })
       .then(() => {
-
+        this.getUsername()
       })
       .catch(() => {
       });
   }
 
   public getUsername(): void {
-    axios.get('api/account').then(response => {
-      const data =   response.data;
-      console.log(data);
-    })
+    this.accountService().retrieveAccount();
   }
 }

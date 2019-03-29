@@ -1,6 +1,8 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+
+    <h3>{{userName}}</h3>
   </div>
 </template>
 
@@ -9,6 +11,26 @@ export default {
   name: "HelloWorld",
   props: {
     msg: String
+  },
+  data: function () {
+    return {
+      currenwtUser: {}
+    }
+  },
+  computed:{
+     userName () {
+      return this.$store.state.account.currentAccount.firstName;
+    }
+  },
+  created () {
+    this.currenwtUser = this.$store.state.account.currentAccount;
+  },
+  watch: {
+    isAuthenticated: function (newValue, oldValue) {
+      if (newValue) {
+
+      }
+    }
   }
 };
 </script>
